@@ -1,0 +1,16 @@
+version: '2.0'
+services:
+  jenkins-portais:
+    build: ./build
+    container_name: portais
+    ports:
+      - "9080:8080"
+    volumes:
+      - "./jenkins/portal:/var/jenkins_home"
+  jenkins-ddm:
+    build: ./build
+    container_name: ddm
+    ports:
+      - "9081:8080"
+    volumes:
+      - "./jenkins/ddm:/var/jenkins_home"
