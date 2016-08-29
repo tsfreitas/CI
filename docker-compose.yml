@@ -37,3 +37,15 @@ services:
       - sonarqube
     links:
       - sonarqube
+
+  nginx:
+    build: ./build-nginx
+    container_name: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - sonarqube
+      - jenkins-portais
+    links:
+      - sonarqube
+      - jenkins-portais
