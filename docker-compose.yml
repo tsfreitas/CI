@@ -29,6 +29,7 @@ services:
   jenkins-portais:
     build: ./build-jenkins
     container_name: portais
+    user: root
     ports:
       - "9080:8080"
     volumes:
