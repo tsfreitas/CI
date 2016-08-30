@@ -7,6 +7,4 @@ Configuração de ambiente de CI
 
 
 TODO
-
-- Configurar um nginx para redirecionamento para os múltiplos Jenkins e Sonarqube
-- Configurar um projeto e criar um pipeline para ele
+	- Configurar um projeto e criar um pipeline para ele
