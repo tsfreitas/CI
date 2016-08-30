@@ -2,17 +2,15 @@ version: '2.0'
 services:
   
   sonarqube:
-    image: sonarqube:6.0
+    build: ./build-sonarqube
     container_name: sonarqube
     ports:
       - "9000:9000"
     environment:
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
     volumes:
-      - "./volumes/sonarqube/conf:/opt/sonarqube/conf"
       - "./volumes/sonarqube/data:/opt/sonarqube/data"
       - "./volumes/sonarqube/extensions:/opt/sonarqube/extensions"
-      - "./volumes/sonarqube/bundled-plugins:/opt/sonarqube/lib/bundled-plugins"
     depends_on:
       - db
 
@@ -23,8 +21,8 @@ services:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
     # Da erro na VM do OSX
-    #volumes:
-    # - "./volumes/postgresql/data:/var/lib/postgresql/data"
+    volumes:
+     - "./volumes/postgresql/data:/var/lib/postgresql/data"
 
   jenkins-portais:
     build: ./build-jenkins
