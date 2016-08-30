@@ -28,6 +28,8 @@ services:
     build: ./build-jenkins
     container_name: portais
     user: root
+    environment:
+      JENKINS_OPTS: "--prefix=/portais"
     ports:
       - "9080:8080"
     volumes:
