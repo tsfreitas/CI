@@ -24,16 +24,16 @@ services:
     volumes:
      - "./volumes/postgresql/data:/var/lib/postgresql/data"
 
-  jenkins-portais:
+  jenkins:
     build: ./build-jenkins
-    container_name: portais
+    container_name: jenkins
     user: root
     environment:
-      JENKINS_OPTS: "--prefix=/portais"
+      JENKINS_OPTS: "--prefix=/jenkins"
     ports:
       - "9080:8080"
     volumes:
-      - "./volumes/jenkins/portal:/var/jenkins_home"
+      - "./volumes/jenkins:/var/jenkins_home"
     depends_on:
       - sonarqube
     links:
@@ -43,10 +43,10 @@ services:
     build: ./build-nginx
     container_name: nginx
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - sonarqube
-      - jenkins-portais
+      - jenkins
     links:
       - sonarqube
-      - jenkins-portais
+      - jenkins
