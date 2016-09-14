@@ -1,12 +1,12 @@
 # Imagem do jenkins com plugins necessários para o ambiente de CI
 
-FROM jenkins:2.7.2
+FROM jenkins:2.7.4
 
 MAINTAINER Thiago Frreitas <thiago.freitas@buscapecompany.com>
 
 # Marca o Jenkins como configurado, para não aparecer a tela de Wizard
-RUN echo 2.7.2 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
-RUN echo 2.7.2 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
+RUN echo 2.7.4 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
+RUN echo 2.7.4 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
 RUN mkdir -p /usr/share/jenkins/ref/users/admin
 ADD config.xml /usr/share/jenkins/ref/users/admin/config.xml
 
