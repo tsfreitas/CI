@@ -1,10 +1,7 @@
-Configuração de ambiente de CI
+# Continuous Integration Project with Jenkins
 
-- Criação de Jenkins para cada grupo de sistemas
-- Configuração do Jenkins para integração com Sonarqube
-- Configuração do Sonarqube com divisões de projetos
-- Imagem do Jenkins com as principais configurações
+This project has two modules. The first one has a docker-compose configuration with Jenkins, 
+sonarqube and a nginx images to create an CI environment.
 
-
-TODO
-	- Configurar um projeto e criar um pipeline para ele
+The second one contains groovy scripts to Jenkins pipeline shared libraries plugin. These scripties 
+have several useful functions.
