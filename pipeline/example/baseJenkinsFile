@@ -8,29 +8,29 @@
 // No branch master > faz deploy em prod da tag  -> Fica no pipeline ?
 
 node {
-	
-	stage('Checkout') {
-		checkout scm
-	}
-	
-	stage('Build') {
-		// TODO: onde guardar o artefato gerado? Usar o comando stash?
-		mavenPackage()
-	}
-	stage ('Tests & Code Quality') {
-		// TODO: como falhar o build se o sonar quebrar?
-		// TODO: como publicar relatório do sonar?
-		codeQuality()
-		// Validar resposta da API
-		// http://sonarqube:9000/api/qualitygates/project_status?projectKey=com.tsfreitas.probe:probe-navigation
-	}
 
-	if (env.BRANCH_NAME == 'homolog') {
-		stage('Deploy @ QA ') {
+    stage('Checkout') {
+        checkout scm
+    }
 
-		}
-		stage('Call integration test') {
-			echo 'to em Dev'
-		}
-	} 
+    stage('Build') {
+        // TODO: onde guardar o artefato gerado? Usar o comando stash?
+        mavenPackage()
+    }
+    stage('Tests & Code Quality') {
+        // TODO: como falhar o build se o sonar quebrar?
+        // TODO: como publicar relatório do sonar?
+        codeQuality()
+        // Validar resposta da API
+        // http://sonarqube:9000/api/qualitygates/project_status?projectKey=com.tsfreitas.probe:probe-navigation
+    }
+
+    if (env.BRANCH_NAME == 'homolog') {
+        stage('Deploy @ QA ') {
+
+        }
+        stage('Call integration test') {
+            echo 'to em Dev'
+        }
+    }
 }
