@@ -1,2 +1,5 @@
 /jenkins
 .idea/
+*.iml
+
+bin/
